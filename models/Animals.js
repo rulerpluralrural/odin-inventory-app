@@ -37,7 +37,7 @@ AnimalSchema.path("imageURL").validate((val) => {
 }, "Invalid URL");
 
 AnimalSchema.virtual("url").get(function () {
-	return `animal/${this._id}`;
+	return `animals/${this._id}`;
 });
 
 module.exports = mongoose.model("Animal", AnimalSchema);
