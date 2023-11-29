@@ -1,5 +1,6 @@
 require("dotenv").config();
 const path = require("path");
+const { errorHandler } = require('./middleware/error-handler')
 
 const express = require("express");
 const app = express();
@@ -9,6 +10,7 @@ const connectDB = require("./database/connect");
 
 // Routers
 const indexRouter = require("./routes");
+const { error } = require("console");
 
 // View engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -20,6 +22,9 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
 app.use("/", indexRouter);
+
+// Error Handler
+app.use(errorHandler)
 
 const port = process.env.PORT || 8000;
 
