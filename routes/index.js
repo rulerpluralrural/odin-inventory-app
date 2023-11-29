@@ -2,8 +2,8 @@ const express = require('express')
 const router = express.Router()
 
 // Get home page
-router.route("/", (req, res) => {
-    res.send("Hello App!")
+router.get("/", (req, res) => {
+    res.redirect("/animal")
 })
 
 module.exports = router

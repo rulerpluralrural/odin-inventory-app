@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Alligator",
+        "description": "Alligators are large reptiles that live in the water and have a pointed mouth. They have large jaws and a sharp set of teeth. They belong to the Alligatoridae family.",
+        "status": "least concern",
+        "imgUrl": "https://images.unsplash.com/photo-1567085270865-5ba32a81bace?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "65672a697eba29652ff46fc3"
+    },
+    {
+        "name": "Dinosaur",
+        "description": "Though extinct, dinosaurs were reptiles that lived on the Earth during the Triassic period. There were different species of dinosaurs that roamed the Earth millions of years ago.",
+        "status": "extinct",
+        "imgUrl": "https://images.unsplash.com/photo-1583867195148-e869329c07b4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZGlub3NhdXJ8ZW58MHx8MHx8fDA%3D",
+        "category": "65672a697eba29652ff46fc3"
+    },
+    {
+        "name": "Gorilla",
+        "description": "Gorillas, also known as great apes, are herbivorous primates that live in the tropical forests of Africa. They have broad shoulders and chests and have human-like legs and hands. They are considered quite intelligent ape species.",
+        "status": "endangered",
+        "imgUrl": "https://images.unsplash.com/photo-1581281863883-2469417a1668?q=80&w=1951&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "65672b294c19ac10d91049ed"
+    },
+    {
+        "name": "Sheep",
+        "description": "Sheep or domestic sheep are a domesticated, ruminant mammal typically kept as livestock. Although the term sheep can apply to other species in the genus Ovis, in everyday usage it almost always refers to domesticated sheep.",
+        "status": "least concern",
+        "imgUrl": "https://images.unsplash.com/photo-1484557985045-edf25e08da73?q=80&w=1973&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "65672b294c19ac10d91049ed"
+    },
+    {
+        "name": "Albatross",
+        "description": "Albatrosses, of the biological family Diomedeidae, are large seabirds related to the procellariids, storm petrels, and diving petrels in the order Procellariiformes. They range widely in the Southern Ocean and the North Pacific.",
+        "status": "endangered",
+        "imgUrl": "https://images.unsplash.com/photo-1552243048-431d0c4e1bad?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWxiYXRyb3NzfGVufDB8fDB8fHww",
+        "category": "65672b744c19ac10d91049ef"
+    },
+    {
+        "name": "Great White Shark",
+        "description": "The great white shark is a type of mackerel shark from the Lamnidae family, which also includes mako sharks, salmon sharks, and porbeagle sharks. Great whites are the largest of the bunch—and the world’s largest predatory fish.",
+        "status": "vulnerable",
+        "imgUrl": "https://images.unsplash.com/photo-1586115457457-b3753fe50cf1?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "65672b984c19ac10d91049f1"
+    },
+    {
+        "name": "Blue Ring Angelfish",
+        "description": "The bluering angelfish, also known as the Annularis Angelfish and the Blue King Angelfish, is a species of marine ray-finned fish, a marine angelfish belonging to the family Pomacanthidae. It is member of the genus Pomacanthus, composed of large marine angelfish.",
+        "status": "least concern",
+        "imgUrl": "https://images.unsplash.com/photo-1564765450132-0b78dd479ebf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGFuZ2VsZmlzaHxlbnwwfHwwfHx8MA%3D%3D",
+        "category": "65672b984c19ac10d91049f1"
+    },
+    {
+        "name": "Barn Owl",
+        "description": "The barn owl is the most widely distributed species of owl in the world and one of the most widespread of all species of birds, being found almost everywhere except for polar and desert regions, Asia north of the Himalayas, some islands of Indonesia, and some Pacific Islands.",
+        "status": "endangered",
+        "imgUrl": "https://plus.unsplash.com/premium_photo-1667358091033-6f3e592ed4fe?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "65672b744c19ac10d91049ef"
+    },
+    {
+        "name": "Artic Wolf",
+        "description": "The Arctic wolf, also known as the white wolf, polar wolf, and the Arctic grey wolf, is a subspecies of grey wolf native to the High Arctic tundra of Canada's Queen Elizabeth Islands, from Melville Island to Ellesmere Island.",
+        "status": "least concern",
+        "imgUrl": "https://images.unsplash.com/photo-1646272973225-e1476bfed375?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YXJ0aWMlMjB3b2xmfGVufDB8fDB8fHww",
+        "category": "65672b294c19ac10d91049ed"
+    },
+    {
+    "name": "Elephant",
+        "description": "Elephants are the largest living land animals. Three living species are currently recognised: the African bush elephant, the African forest elephant, and the Asian elephant. They are the only surviving members of the family Elephantidae and the order Proboscidea; extinct relatives include mammoths and mastodons.",
+        "status": "endangered",
+        "imgUrl": "https://images.unsplash.com/photo-1603483080228-04f2313d9f10?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "65672b294c19ac10d91049ed"
+    }
+]

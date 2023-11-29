@@ -10,7 +10,7 @@ const AnimalSchema = new mongoose.Schema(
 		description: {
 			type: String,
 			required: [true, "Please provide a description"],
-			maxLength: 200,
+			maxLength: 500,
 		},
 		status: {
 			type: String,
@@ -30,11 +30,11 @@ const AnimalSchema = new mongoose.Schema(
 	{ timestamps: true }
 );
 
-AnimalSchema.path("imageURL").validate((val) => {
-	urlRegex =
-		/(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?/;
-	return urlRegex.test(val);
-}, "Invalid URL");
+// AnimalSchema.path("imageURL").validate((val) => {
+// 	urlRegex =
+// 		/(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?/;
+// 	return urlRegex.test(val);
+// }, "Invalid URL");
 
 AnimalSchema.virtual("url").get(function () {
 	return `animals/${this._id}`;

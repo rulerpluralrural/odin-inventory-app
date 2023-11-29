@@ -9,7 +9,7 @@ const CategorySchema = new mongoose.Schema({
 	description: {
 		type: String,
 		required: [true, "Please provide a description"],
-		maxLength: 200,
+		maxLength: 500,
 	},
 });
 
