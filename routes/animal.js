@@ -5,9 +5,6 @@ const router = express.Router()
 // Controller Modules
 const animalController = require('../controllers/animalController')
 
-// Get Home Page
-animalRouter.get('/', animalController.index)
-
 // < Requests for animal informations >
 
 // GET request for creating an animal

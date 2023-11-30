@@ -3,19 +3,22 @@ const Category = require("../models/Category");
 const { StatusCodes } = require("http-status-codes");
 const asyncHandler = require("express-async-handler");
 
-exports.index = asyncHandler(async (req, res, next) => {
-	// GET all details of animals and categories
-	// const [getAllAnimals, getAllCategories] = await Promise.all([
-	// 	Animal.find().exec(),
-	// 	Category.find().exec(),
-	// ]);
 
-	// res.render("index", {
-	// 	title: "Animals Info Home Page",
-	// 	animals: getAllAnimals,
-	// 	categories: getAllCategories,
-	// });
-	res.send("Category Page");
+exports.index = asyncHandler(async (req, res, next) => {
+	const [getAllAnimals, getAllCategories] = await Promise.all([
+		Animal.find().exec(),
+		Category.find().exec(),
+	]);
+
+	console.log(getAllAnimals)
+	console.log(getAllCategories)
+	
+	res.render("index", {
+		title: "Animals Info Home Page",
+		animals: getAllAnimals,
+		categories: getAllCategories,
+	});
+
 });
 
 exports.category_details = asyncHandler(async (req, res, next) => {

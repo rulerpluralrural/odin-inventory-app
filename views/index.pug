@@ -1,0 +1,13 @@
+extends layout
+
+block content
+	h1= title
+	p Welcome to animal information website developed for #[em The Odin Project] backend course.
+
+	h1 Here are the list of animals categories:
+
+	ul
+		each category in categories
+			li
+				a(href=category.url) #{ category.name }
+				p #[strong Description:] #{ category.description }
