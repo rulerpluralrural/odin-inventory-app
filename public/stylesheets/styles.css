@@ -20,6 +20,8 @@ font-family: 'Fauna One', serif; */
 	--green-800: #008000;
 	--transition-ease: all 180ms ease-in;
 	--transition-ease-in-out: all 350ms ease-in-out;
+	--animate-ping: ping 1s infinite ease-in-out;
+    --border-radius-sm: 5px;
 }
 
 body {
@@ -119,7 +121,8 @@ navbar .logo {
 	transition: var(--transition-ease-in-out);
 }
 
-.navbar-nav li a:hover::after {
+.navbar-nav li a:hover::after,
+.navbar-nav li a:focus::after {
 	width: 100%;
 }
 
@@ -163,7 +166,7 @@ navbar .logo {
 }
 
 .category-list-container a:hover {
-    color: #1e6780;
+	color: #1e6780;
 }
 
 .category-list-container p {
@@ -176,9 +179,9 @@ navbar .logo {
 }
 
 .add-category-btn {
-    justify-self: center;
-    gap: .4rem;
-	padding: .6rem;
+	justify-self: center;
+	gap: 0.4rem;
+	padding: 0.6rem;
 	font-family: "Cinzel", serif;
 	border: 2px solid var(--black-clr);
 	border-radius: 3px;
@@ -186,25 +189,34 @@ navbar .logo {
 	font-size: 1.1rem;
 	font-weight: bold;
 	background-color: transparent;
-    transform: translateZ(0);
-    backface-visibility: hidden;
+	transform: translateZ(0);
+	backface-visibility: hidden;
 	transition: var(--transition-ease);
 }
 
 .add-category-btn i {
-    margin-left: .5rem;
-    font-size: 1.2rem;
+	margin-left: 0.5rem;
+	font-size: 1.2rem;
 }
 
 .add-category-btn:hover {
 	scale: 1.05;
 }
 
-
 /* Animal List Page Styling */
 
 .content .animal-list-heading {
 	text-align: center;
+}
+
+.animal-list-heading i {
+	margin-top: 1rem;
+	font-size: 2.3rem;
+	cursor: pointer;
+}
+
+.animal-list-heading i:hover {
+	animation: var(--animate-ping);
 }
 
 .animal-list-container {
@@ -228,7 +240,6 @@ navbar .logo {
 	display: flex;
 	flex-direction: column;
 	gap: 0.4rem;
-	text-align: center;
 }
 
 .animal-card p:nth-child(2) {
@@ -259,7 +270,7 @@ navbar .logo {
 }
 
 .category-link:hover {
-	animation: ping 1s infinite ease-in-out;
+	animation: var(--animate-ping);
 }
 
 .common {
@@ -277,6 +288,64 @@ navbar .logo {
 .extinct {
 	color: rebeccapurple;
 }
+
+/* Category Details Styling */
+
+.category-details-heading h1:first-child {
+    text-decoration: underline;
+}
+
+.category-details-heading p::first-letter {
+    text-transform: capitalize;
+}
+
+.category-details-heading {
+    display: flex;
+    flex-direction: column;
+    gap: .9rem;
+}
+
+.category-details-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.2rem;
+}
+
+.category-details-card {
+    display:  flex;
+    gap: .8rem;
+    border: 2px solid var(--black-clr);
+    border-radius: var(--border-radius-sm);
+}
+
+.category-details-card img {
+    width: 250px;
+    aspect-ratio: 1/1;
+    border-right: 2px solid var(--black-clr);
+}
+
+.category-details-content {
+    padding: .7rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.category-details-content a:first-child {
+    font-size: 1.3rem;
+    font-family: 'Cinzel', serif;
+    text-decoration: underline;
+}
+
+.category-details-content p:nth-child(2){
+    text-transform: capitalize;
+}
+
+.category-details-content p:nth-child(4){
+    margin-top: 1rem;
+}
+
 
 @keyframes ping {
 	0% {

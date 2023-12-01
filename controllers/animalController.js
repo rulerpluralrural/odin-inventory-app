@@ -8,10 +8,9 @@ exports.index =  asyncHandler(async (req, res, next) => {
 		Category.find().exec(),
 	]);
 
-	console.log(getAllAnimals)
-
 	res.render("animal", {
-		title: "Animals List",
+		title: 'Wildlife Info',
+		name: "animals list",
 		animals: getAllAnimals,
 		categories: getAllCategories,
 	});

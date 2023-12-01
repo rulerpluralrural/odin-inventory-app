@@ -3,13 +3,12 @@ const Category = require("../models/Category");
 const { StatusCodes } = require("http-status-codes");
 const asyncHandler = require("express-async-handler");
 
-
 exports.index = asyncHandler(async (req, res, next) => {
 	const [getAllAnimals, getAllCategories] = await Promise.all([
 		Animal.find().exec(),
 		Category.find().exec(),
 	]);
-	
+
 	res.render("index", {
 		title: "Wildlife Info",
 		animals: getAllAnimals,
@@ -18,10 +17,20 @@ exports.index = asyncHandler(async (req, res, next) => {
 });
 
 exports.category_details = asyncHandler(async (req, res, next) => {
-	res.send("GET category details");
+	const [category, getAllAnimals] = await Promise.all([
+		Category.findById(req.params.id),
+		Animal.find({ category: req.params.id }).sort().populate('category').exec(),
+	]);
+
+	res.render("category/category_details", {
+		title: 'Wildlife Info',
+		name: category.name,
+		description: category.description,
+		animals: getAllAnimals,
+	});
 });
 
-// 
+//
 exports.category_list = asyncHandler(async (req, res, next) => {
 	const categories = await Category.find();
 	res.status(StatusCodes.OK).json({ categories });

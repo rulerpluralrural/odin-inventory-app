@@ -1,17 +1,17 @@
-extends layout
+extends ../layout
 
 block content
 	.content
-		.animal-list-heading
-			h1 Here are all the #{ name }
-			i.fa-regular.fa-square-plus
+		.category-details-heading 
+			h1= name
+			p= description
 
-		.animal-list-container
+		.category-details-container
 			each animal in animals
-				.animal-card
+				.category-details-card
 					img(src=animal.imgUrl, alt=animal.name)
-					.animal-card-details
-						a(href="#") #{ animal.name }
+					.category-details-content
+						a(href="#") #[strong #{ animal.name } ]
 						if animal.status=='least concern'
 							p.common #{ animal.status }
 						else if animal.status=='vulnerable'
@@ -22,5 +22,5 @@ block content
 							p.extinct #{ animal.status }
 						p #[strong Category:]
 							|
-							a.category-link(href="animal.url") #{ animal.category.name }
+							a.category-link(href=animal.url) #{ animal.category.name }
 						p - #{ animal.description }
