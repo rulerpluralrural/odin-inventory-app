@@ -1,13 +1,18 @@
 extends layout
 
 block content
-	h1= title
-	p Welcome to animal information website developed for #[em The Odin Project] backend course.
+	.home-page
+		.header
+			h1 Welcome to #{ title }
+			p This website is made to give information about animals it is developed for #[em The Odin Project] backend course.
 
-	h1 Here are the list of animals categories:
+			h2 Here are the animal categories:
 
-	ul
-		each category in categories
-			li
-				a(href=category.url) #{ category.name }
-				p #[strong Description:] #{ category.description }
+		.category-container
+			each category in categories
+				.category-list-container
+					a(href=category.url) #{ category.name }
+					p #[strong Description:] #{ category.description }
+
+		.button-container
+			button.add-category-btn(type="button") Add new category

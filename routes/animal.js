@@ -7,6 +7,9 @@ const animalController = require('../controllers/animalController')
 
 // < Requests for animal informations >
 
+// GET animal page
+animalRouter.get('/', animalController.index)
+
 // GET request for creating an animal
 animalRouter.get('/create', animalController.animal_create_get)
 

@@ -10,18 +10,17 @@ html(lang="en")
 		)
 		link(rel="stylesheet", href="/stylesheets/styles.css")
 	body
-		navbar 
-		block navbar
+		navbar
 			.logo
 				i.fa-solid.fa-paw
 				h1= title
 
 			ul.navbar-nav
 				li
-					a(href="/categories") Home
+					a.home(href="/category") Home
 				li
-					a(href="/animals") Animals
+					a(href="/animal") Animals
 				li
-					a(href="/categories") Categories
+					a(href="/category") Categories
 
-			block content
+		block content

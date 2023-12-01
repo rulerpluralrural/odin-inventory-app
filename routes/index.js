@@ -3,7 +3,7 @@ const router = express.Router()
 
 // Get home page
 router.get("/", (req, res) => {
-    res.redirect("/animal")
+    res.redirect("/category")
 })
 
 module.exports = router

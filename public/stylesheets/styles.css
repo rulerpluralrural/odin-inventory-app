@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Fauna+One&display=swap");
+
+/* font-family: 'Cinzel', serif;
+font-family: 'Fauna One', serif; */
+
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--black-clr: #111111;
+	--white-clr: #fff;
+	--yellow-clr: #fafa14;
+	--transition-ease: all 180ms ease-in;
+	--transition-ease-in-out: all 350ms ease-in-out;
+}
+
+body {
+	font-family: "Fauna One", serif;
+	background-color: var(--white-clr);
+	color: var(--black-clr);
+	letter-spacing: 0.8px;
+}
+
+i {
+	font-size: 1.5rem;
+}
+
+a {
+	text-decoration: none;
+	color: var(--black-clr);
+}
+
+li {
+	list-style: none;
+}
+
+img {
+    width: 300px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+/* Navbar Styling */
+
+navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-inline: 5rem;
+	font-family: "Cinzel", serif;
+}
+
+navbar .logo {
+	width: 270px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.7rem;
+}
+
+.logo h1 {
+	font-size: 1.8rem;
+}
+
+.navbar-nav {
+	width: 400px;
+	display: flex;
+	justify-content: space-around;
+	font-size: 1.5rem;
+	font-weight: 500;
+}
+
+.navbar-nav li {
+	padding-block: 1.5rem;
+}
+
+.navbar-nav li:nth-child(1) {
+	background-color: var(--black-clr);
+	color: var(--white-clr);
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.navbar-nav li:nth-child(1):hover {
+	background-color: var(--yellow-clr);
+	transition: var(--transition-ease-in-out);
+}
+
+.navbar-nav li:nth-child(1):hover a {
+	color: var(--black-clr);
+	transition: var(--transition-ease-in-out);
+}
+
+.navbar-nav .home {
+	font-weight: bold;
+	color: var(--white-clr);
+	padding-inline: 0.8rem;
+}
+
+.navbar-nav li a {
+	display: inline-block;
+}
+
+.navbar-nav li a::after {
+	content: "";
+	width: 0px;
+	height: 1px;
+	display: block;
+	background: var(--black-clr);
+	transition: var(--transition-ease-in-out);
+}
+
+.navbar-nav li a:hover::after {
+	width: 100%;
+}
+
+/* Home Page Styling */
+
+.home-page {
+	padding: 2rem 5rem;
+}
+
+.header {
+	margin-bottom: 1rem;
+	line-height: 2rem;
+}
+
+.header p {
+	border-bottom: 1px solid var(--black-clr);
+}
+
+.header h2 {
+	margin-block: 1rem;
+}
+
+.category-container {
+	display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.category-list-container {
+    border: 1px solid var(--black-clr);
+    border-radius: 5px;
+    padding: 0.8rem;
+}
+
+.category-list-container a {
+	font-size: 1.4rem;
+	font-weight: bold;
+    text-decoration: underline;
+}
+
+.category-list-container p {
+    margin-top: .7rem;
+}
+
+.button-container {
+    width: 100%;
+    text-align: center;
+}
+
+.add-category-btn {
+    padding: 1rem;
+    font-family: 'Cinzel', serif;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background-color: var(--yellow-clr);
+    box-shadow: 2px 3px var(--black-clr);
+    transition: var(--transition-ease);
+}
+
+.add-category-btn:hover {
+    background-color: #e4e41c;
+}
+
+.add-category-btn:active {
+    box-shadow: none;
+}

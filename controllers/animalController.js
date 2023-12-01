@@ -2,17 +2,21 @@ const Animal = require("../models/Animal");
 const Category = require("../models/Category");
 const asyncHandler = require("express-async-handler");
 
-exports.animal_list = asyncHandler(async (req, res, next) => {
+exports.index =  asyncHandler(async (req, res, next) => {
 	const [getAllAnimals, getAllCategories] = await Promise.all([
 		Animal.find().exec(),
 		Category.find().exec(),
 	]);
 
-	res.render("animals", {
+	res.render("animal", {
 		title: "Animals List",
 		animals: getAllAnimals,
 		categories: getAllCategories,
 	});
+});
+
+exports.animal_list = asyncHandler(async (req, res, next) => {
+	res.send('GET all animals from a category')
 });
 
 
