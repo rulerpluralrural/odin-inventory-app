@@ -4,9 +4,11 @@ const asyncHandler = require("express-async-handler");
 
 exports.index =  asyncHandler(async (req, res, next) => {
 	const [getAllAnimals, getAllCategories] = await Promise.all([
-		Animal.find().exec(),
+		Animal.find().sort('name').populate('category').exec(),
 		Category.find().exec(),
 	]);
+
+	console.log(getAllAnimals)
 
 	res.render("animal", {
 		title: "Animals List",

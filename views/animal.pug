@@ -1,13 +1,24 @@
 extends layout
 
 block content
-	h1 Here are all the animal list
+	.content
+		h1.animal-list-heading Here are all the animal list
 
-	.animal-list-container
-		each animal in animals
-			.animal-card
-				img(src=animal.imgUrl, alt=animal.name)
-				p #{ animal.name }
-				p #{ animal.status }
-				p #{ animal.category }
-				p #{ animal.description }
+		.animal-list-container
+			each animal in animals
+				.animal-card
+					img(src=animal.imgUrl, alt=animal.name)
+					.animal-card-details
+						a(href="#") #{ animal.name }
+						if animal.status=='least concern'
+							p.common #{ animal.status }
+						else if animal.status=='vulnerable'
+							p.vulnerable #{ animal.status }
+						else if animal.status=='endangered'
+							p.endangered #{ animal.status }
+						else
+							p.extinct #{ animal.status }
+						p #[strong Category:]
+							|
+							a.category-link(href="animal.url") #{ animal.category.name }
+						p - #{ animal.description }
