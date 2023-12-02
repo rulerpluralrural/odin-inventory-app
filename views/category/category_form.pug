@@ -2,14 +2,15 @@ extends ../layout
 
 block content
 	.content
+		h1.form-header= title
 		.form-container
 			form(method="POST", action="") 
 				.form-group
-					label(for="category-name") Name:
-					input#category-name.form-control(
+					label(for="category_name") Name:
+					input#category_name.form-control(
 						type="text",
 						placeholder="Name of the Category",
-						name="category-name",
+						name="category_name",
 						required="true",
 						value=undefined === category ? "" : category.name
 					)
@@ -23,3 +24,7 @@ block content
 					) #{ undefined === category ? '' : category.name }
 				.form-btn-container
 					button(type="submit") Submit
+		if errors
+			ul
+				each error in errors 
+					li!= error.msg

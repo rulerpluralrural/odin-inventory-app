@@ -396,7 +396,18 @@ navbar .logo {
     margin-top: 1rem;
 }
 
+.text-error {
+	color: var(--red-600);
+	text-decoration: underline;
+	font-size: large;
+	font-weight: bold;
+}
+
 /* Form Styling */
+
+.content .form-header {
+	text-align: center;
+}
 
 .form-container {
 	display: flex;
@@ -407,7 +418,7 @@ navbar .logo {
 
 form {
 	width: 50%;
-	margin-top: 5rem;
+	margin-top: 2rem;
 	border: 2px solid var(--gray-clr);
 	border-radius: 3px;
 	padding: 1.5rem 2rem;

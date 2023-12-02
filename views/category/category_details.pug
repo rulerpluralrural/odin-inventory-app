@@ -2,7 +2,7 @@ extends ../layout
 
 block content
 	.content
-		.category-details-heading 
+		.category-details-heading
 			h1= title
 			p= description
 
@@ -24,3 +24,5 @@ block content
 							|
 							a.category-link(href=animal.url) #{ animal.category.name }
 						p - #{ animal.description }
+		if animals.length <= 0
+			p.text-error There are no animals in this category please add one.
