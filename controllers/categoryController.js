@@ -29,6 +29,7 @@ exports.category_details = asyncHandler(async (req, res, next) => {
 		title: category.name,
 		description: category.description,
 		animals: getAllAnimals,
+		category: category,
 	});
 });
 
@@ -84,12 +85,46 @@ exports.category_create_post = [
 	}),
 ];
 
+// Display category form on GET
 exports.category_delete_get = asyncHandler(async (req, res, next) => {
-	res.send("GET Delete Category");
+	const [category, allAnimalsInCategory] = await Promise.all([
+		Category.findById(req.params.id).exec(),
+		Animal.find({ category: req.params.id }).exec(),
+	]);
+
+
+	if (category === null) {
+		// No results
+		res.redirect("/category");
+	}
+
+	res.render("category/category_delete", {
+		title: "Delete Category",
+		category: category,
+		category_animals: allAnimalsInCategory,
+	});
 });
 
+// Handle category delete on POST
 exports.category_delete_post = asyncHandler(async (req, res, next) => {
-	res.send("GET Delete category");
+	const [category, allAnimalsInCategory] = await Promise.all([
+		Category.findById(req.params.id).exec(),
+		Animal.find({ category: req.params.id }).exec(),
+	]);
+
+	if (allAnimalsInCategory.length > 0) {
+		// Category has animals. Render in the same way as GET route
+		res.render("category/category_delete", {
+			title: "Delete Category",
+			category: category,
+			category_animals: allAnimalsInCategory,
+		});
+		return;
+	} else {
+		// Category has no animals. Delete the object and redirect to category list page.
+		await Category.findByIdAndDelete(req.body.category_id);
+		res.redirect("/category");
+	}
 });
 
 exports.category_update_get = asyncHandler(async (req, res, next) => {

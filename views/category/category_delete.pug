@@ -1,0 +1,39 @@
+extends ../layout
+
+block content
+	.content
+		.delete-header
+			h1 #{ title }: #{ category.name }
+			p= category.description
+
+		if category_animals.length
+			p.text-error #[strong * Delete this following animals before attempting to delete this category.]
+
+			.delete-list
+				h2 Animal List:
+				.delete-list-container
+					each animal in category_animals
+						.delete-list-card
+							img(src=animal.imgUrl, alt=animal.name)
+							.delete-card-details
+								a(href=animal.url) #{ animal.name }
+								if animal.status=='least concern'
+									p.common #{ animal.status }
+								else if animal.status=='vulnerable'
+									p.vulnerable #{ animal.status }
+								else if animal.status=='endangered'
+									p.endangered #{ animal.status }
+								else
+									p.extinct #{ animal.status }
+
+		else
+			p.text-error #[strong Are you sure you want to delete this category?]
+
+			form(method="POST", action="")
+					input#category_id(
+						type="hidden",
+						name="category_id",
+						required="true",
+						value=category._id
+					)
+					button.delete-btn(type="submit") Delete

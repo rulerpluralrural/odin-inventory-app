@@ -3,7 +3,15 @@ extends ../layout
 block content
 	.content
 		.category-details-heading
-			h1= title
+			.category-title
+				h1= title
+				.icons-container
+					a(href=category.url + "/delete")
+						|
+						i.fa-regular.fa-trash-can(title="Delete Category")
+					a(href=category.url + "/update")
+						|
+						i.fa-regular.fa-pen-to-square(title="Edit Category")
 			p= description
 
 		.category-details-container
