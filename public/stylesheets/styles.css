@@ -13,12 +13,17 @@ font-family: 'Fauna One', serif; */
 
 :root {
 	--black-clr: #111111;
+	--gray-clr: #808080;
 	--white-clr: #fff;
 	--yellow-clr: #fafa14;
-	--green-500: #32cd32;
+	--green-400: #32cd32;
 	--green-600: #4cbb17;
 	--green-800: #008000;
+	--red-800: #880808;
+	--red-600: #8B0000;
+	--red-400: #FF0000;
 	--transition-ease: all 180ms ease-in;
+	--transition-bg: background-color 150ms ease-in;
 	--transition-ease-in-out: all 350ms ease-in-out;
 	--animate-ping: ping 1s infinite ease-in-out;
     --border-radius-sm: 5px;
@@ -30,6 +35,9 @@ body {
 	color: var(--black-clr);
 	letter-spacing: 0.8px;
 	text-align: center;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
 i {
@@ -49,6 +57,12 @@ img {
 	width: 100%;
 	aspect-ratio: 1/1;
 	object-fit: cover;
+}
+
+button {
+	padding: .5rem;
+	border: none;
+	cursor: pointer;
 }
 
 /* Navbar Styling */
@@ -129,6 +143,7 @@ navbar .logo {
 /* Category Page Styling */
 
 .content {
+	flex-grow: 1;
 	padding: 2rem 5rem;
 	text-align: left;
 }
@@ -157,6 +172,10 @@ navbar .logo {
 	border: 1px solid var(--black-clr);
 	border-radius: 5px;
 	padding: 0.8rem;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	gap: .5rem;
 }
 
 .category-list-container a {
@@ -166,11 +185,40 @@ navbar .logo {
 }
 
 .category-list-container a:hover {
-	color: #1e6780;
+	animation: var(--animate-ping);
 }
 
 .category-list-container p {
 	margin-top: 0.7rem;
+}
+
+.category-btn-container {
+	display: flex;
+	align-items: center;
+	gap: .8rem;
+}
+
+.category-btn-container button {
+	font-weight: bold;
+	font-size: 1rem;
+	width: 150px;
+	border-radius: 3px;
+	padding: .3rem;
+	background-color: transparent;
+	transition: var(--transition-ease);
+}
+
+.category-btn-container button:nth-child(1) {
+	border: 2px solid var(--green-600);
+}
+
+.category-btn-container button:nth-child(2) {
+	border: 2px solid var(--red-600)
+}
+
+.category-btn-container button:hover,
+.category-btn-container button:focus {
+	scale: 1.05;
 }
 
 .button-container {
@@ -240,10 +288,12 @@ navbar .logo {
 	display: flex;
 	flex-direction: column;
 	gap: 0.4rem;
+	text-align: center;
 }
 
 .animal-card p:nth-child(2) {
 	text-transform: capitalize;
+	margin-bottom: .5rem;
 }
 
 .animal-card p:nth-child(3) {
@@ -346,6 +396,59 @@ navbar .logo {
     margin-top: 1rem;
 }
 
+/* Form Styling */
+
+.form-container {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	height: 100%;
+}
+
+form {
+	width: 50%;
+	margin-top: 5rem;
+	border: 2px solid var(--gray-clr);
+	border-radius: 3px;
+	padding: 1.5rem 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: .7rem;
+}
+
+.form-group {
+	text-align: left;
+}
+
+.form-group label {
+	display: block;
+	font-size: 1.2rem;
+	font-weight: bold;
+	margin-bottom: .4rem;
+}
+
+.form-control {
+	width: 100%;
+	padding: .5rem .8rem;
+	font-size: 1rem;
+}
+
+.form-btn-container button{
+	width: 100%;
+	border: 2px solid var(--green-800);
+	border-radius: 3px;
+	background-color: transparent;
+	font-size: 1.2rem;
+	font-weight: bold;
+	transition: var(--transition-bg);
+}
+
+.form-btn-container button:hover,
+.form-btn-container button:focus {
+	background-color: var(--green-400);
+	color: var(--white-clr);
+	border: 2px solid var(--gray-clr)
+}
 
 @keyframes ping {
 	0% {

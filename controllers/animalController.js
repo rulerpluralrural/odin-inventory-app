@@ -9,8 +9,7 @@ exports.index =  asyncHandler(async (req, res, next) => {
 	]);
 
 	res.render("animal", {
-		title: 'Wildlife Info',
-		name: "animals list",
+		title: 'Animal List',
 		animals: getAllAnimals,
 		categories: getAllCategories,
 	});

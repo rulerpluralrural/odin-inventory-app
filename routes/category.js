@@ -32,7 +32,7 @@ categoryRouter.post("/:id/update", categoryController.category_update_post);
 categoryRouter.get("/:id", categoryController.category_details);
 
 // Get request for a list of all categories
-router.get("/categories", categoryController.category_list);
+// router.get("/categories", categoryController.category_list);
 
 router.use('/category', categoryRouter)
 

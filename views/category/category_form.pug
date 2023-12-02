@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+	.content
+		.form-container
+			form(method="POST", action="") 
+				.form-group
+					label(for="category-name") Name:
+					input#category-name.form-control(
+						type="text",
+						placeholder="Name of the Category",
+						name="category-name",
+						required="true",
+						value=undefined === category ? "" : category.name
+					)
+				.form-group
+					label(for="description") Description:
+					textarea#description.form-control(
+						type="textarea",
+						name="description",
+						required="true",
+						placeholder="Information about the category"
+					) #{ undefined === category ? '' : category.name }
+				.form-btn-container
+					button(type="submit") Submit

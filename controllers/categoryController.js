@@ -19,25 +19,20 @@ exports.index = asyncHandler(async (req, res, next) => {
 exports.category_details = asyncHandler(async (req, res, next) => {
 	const [category, getAllAnimals] = await Promise.all([
 		Category.findById(req.params.id),
-		Animal.find({ category: req.params.id }).sort().populate('category').exec(),
+		Animal.find({ category: req.params.id }).sort().populate("category").exec(),
 	]);
 
 	res.render("category/category_details", {
-		title: 'Wildlife Info',
-		name: category.name,
+		title: category.name,
 		description: category.description,
 		animals: getAllAnimals,
 	});
 });
 
-//
-exports.category_list = asyncHandler(async (req, res, next) => {
-	const categories = await Category.find();
-	res.status(StatusCodes.OK).json({ categories });
-});
-
 exports.category_create_get = asyncHandler(async (req, res, next) => {
-	res.send("GET Create Category");
+	res.render("category/category_form", {
+		title: "Wildlife Info",
+	});
 });
 
 exports.category_create_post = asyncHandler(async (req, res, next) => {

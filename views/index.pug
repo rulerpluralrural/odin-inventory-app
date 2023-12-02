@@ -13,8 +13,13 @@ block content
 				.category-list-container
 					a(href=category.url) #{ category.name }
 					p #[strong Description:] #{ category.description }
+					.category-btn-container
+						button(type="button") Update
+						button(type="button") Delete
 
 		.button-container
-			button.add-category-btn(type="button") Add new
+			button.add-category-btn
+				|
+				a(href="/category/create") Add new
 				|
 				i.fa-solid.fa-plus
