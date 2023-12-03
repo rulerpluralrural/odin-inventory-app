@@ -31,9 +31,6 @@ animalRouter.post('/:id/update', animalController.animal_update_post)
 // GET request for a single animal
 animalRouter.get('/:id', animalController.animal_details)
 
-// Get request for a list of all animals
-router.get('/animals', animalController.animal_list)
-
 router.use('/animal', animalRouter)
 
 module.exports = router

@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+	.content
+		.category-details-heading
+			.category-title
+				h1= title
+				.icons-container
+					a(href=animal.url + "/delete")
+						|
+						i.fa-regular.fa-trash-can(title="Delete Category")
+					a(href=animal.url + "/update")
+						|
+						i.fa-regular.fa-pen-to-square(title="Edit Category")
+			p= animal.description
+
+		.category-details-container
+			.category-details-card
+				img(src=animal.imgUrl, alt=animal.name)
+				.category-details-content
+					if animal.status=='least concern'
+						p.common #{ animal.status }
+					else if animal.status=='vulnerable'
+						p.vulnerable #{ animal.status }
+					else if animal.status=='endangered'
+						p.endangered #{ animal.status }
+					else
+						p.extinct #{ animal.status }
+					p #[strong Category:]
+						|
+						a.category-link(href=animal_category.url) #{ animal_category.name }
+					p - #{ animal_category.description }

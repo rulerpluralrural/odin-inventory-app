@@ -37,7 +37,7 @@ const AnimalSchema = new mongoose.Schema(
 // }, "Invalid URL");
 
 AnimalSchema.virtual("url").get(function () {
-	return `animals/${this._id}`;
+	return `/animal/${this._id}`;
 });
 
 module.exports = mongoose.model("Animal", AnimalSchema);

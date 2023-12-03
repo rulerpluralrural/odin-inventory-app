@@ -11,7 +11,7 @@ block content
 				.animal-card
 					img(src=animal.imgUrl, alt=animal.name)
 					.animal-card-details
-						a(href="#") #{ animal.name }
+						a(href=animal.url) #{ animal.name }
 						if animal.status=='least concern'
 							p.common #{ animal.status }
 						else if animal.status=='vulnerable'
@@ -22,5 +22,5 @@ block content
 							p.extinct #{ animal.status }
 						p #[strong Category:]
 							|
-							a.category-link(href="animal.url") #{ animal.category.name }
+							a.category-link(href=animal.url) #{ animal.category.name }
 						p - #{ animal.description }
