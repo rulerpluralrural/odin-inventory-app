@@ -4,7 +4,9 @@ block content
 	.content
 		.animal-list-heading
 			h1 Here are all the animal list
-			i.fa-regular.fa-square-plus
+			a(href="/animal/create", title="Add a new animal")
+				|
+				i.fa-regular.fa-square-plus
 
 		.animal-list-container
 			each animal in animals

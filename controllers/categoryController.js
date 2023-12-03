@@ -32,7 +32,7 @@ exports.category_details = asyncHandler(async (req, res, next) => {
 	});
 });
 
-// Display category form on GET
+// Display category create form on GET
 exports.category_create_get = asyncHandler(async (req, res, next) => {
 	res.render("category/category_form", {
 		title: "Create a category",
@@ -84,7 +84,7 @@ exports.category_create_post = [
 	}),
 ];
 
-// Display category form on GET
+// Display category delete form on GET
 exports.category_delete_get = asyncHandler(async (req, res, next) => {
 	const [category, allAnimalsInCategory] = await Promise.all([
 		Category.findById(req.params.id).exec(),

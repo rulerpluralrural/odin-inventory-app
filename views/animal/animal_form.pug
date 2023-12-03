@@ -1,0 +1,57 @@
+extends ../layout
+
+block content
+	.content
+		h1.form-header= title
+		.form-container
+			form.category-form(method="POST", action="") 
+				.form-group
+					label(for="animal_name") Name:
+					input#animal_name.form-control(
+						type="text",
+						placeholder="Name of the animal",
+						name="animal_name",
+						required="true",
+						value=undefined === animal ? "" : animal.name
+					)
+				.form-group
+					label(for="description") Description:
+					textarea#description.form-control(
+						type="textarea",
+						name="description",
+						required="true",
+						placeholder="Information about the animal"
+					) #{ undefined === animal ? '' : animal.description }
+				.form-group
+					label(for="img_url") Image URL
+					input#img_url.form-control(
+						type="text",
+						placeholder="Type the image url here",
+						name="img_url",
+						required="true",
+						value=undefined === imgUrl ? "" : animal.imgUrl
+					)
+				.form-group
+					label(for="status") Status
+					select#status.form-control(
+						type="select",
+						name="status",
+						placeholder="Animal status"
+					)
+						option(value="least concern") Least Concern
+						option(value="vulerable") Vulnerable
+						option(value="endangered") Endangered
+						option(value="extinct") Extinct
+				.form-group
+					label(for="category") Category
+					select#category.form-control(
+						type="select",
+						name="category",
+						placeholder="Animal type"
+					)
+						each category in categories 
+							option(value=category.name) #{ category.name }
+		if errors
+			ul
+				each error in errors 
+					li!= error.msg
