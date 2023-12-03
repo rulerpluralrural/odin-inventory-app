@@ -31,6 +31,7 @@ font-family: 'Fauna One', serif; */
 	--transition-bg: background-color 150ms ease-in;
 	--transition-ease-in-out: all 350ms ease-in-out;
 	--animate-ping: ping 1s infinite ease-in-out;
+	--animate-slide: slide 1s ease;
 	--border-radius-sm: 5px;
 }
 
@@ -72,6 +73,10 @@ button {
 	padding: 0.5rem;
 	border: none;
 	cursor: pointer;
+}
+
+textarea {
+	height: 150px;
 }
 
 /* Navbar Styling */
@@ -210,8 +215,8 @@ navbar .logo {
 
 .category-btn-container a {
 	font-weight: bold;
-	font-size: 1rem;
-	width: 150px;
+	font-size: .923rem;
+	width: 140px;
 	text-decoration: none;
 	border-radius: 3px;
 	padding: 0.3rem;
@@ -435,12 +440,17 @@ navbar .logo {
 	text-decoration: underline;
 }
 
+.category-details-content a:first-child:hover {
+	animation: var(--animate-ping);
+}
+
 .category-details-content p:nth-child(2) {
 	text-transform: capitalize;
+	margin-bottom: .5rem;
 }
 
 .category-details-content p:nth-child(4) {
-	margin-top: 1rem;
+	margin-top: .7rem;
 }
 
 .text-error {
@@ -448,6 +458,10 @@ navbar .logo {
 	text-decoration: underline;
 	font-size: large;
 	font-weight: bold;
+}
+
+.slide-text {
+	animation: var(--animate-slide);
 }
 
 /* Form Styling */
@@ -587,5 +601,14 @@ form.category-form {
 	}
 	100% {
 		opacity: 1;
+	}
+}
+
+@keyframes slide {
+	0% {
+		transform: translateX(-1000px);
+	}
+	100% {
+		transform: translateX(0);
 	}
 }
