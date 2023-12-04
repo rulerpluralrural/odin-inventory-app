@@ -123,8 +123,12 @@ exports.animal_delete_get = asyncHandler(async (req, res, next) => {
 	});
 });
 
+// Handle delete animal on POST
 exports.animal_delete_post = asyncHandler(async (req, res, next) => {
-	res.send("GET Delete Animal");
+	const animal = await Animal.findById(req.params.id)
+
+	await Animal.findByIdAndDelete(req.body.animal_id);
+	res.redirect("/animal");
 });
 
 exports.animal_update_get = asyncHandler(async (req, res, next) => {
