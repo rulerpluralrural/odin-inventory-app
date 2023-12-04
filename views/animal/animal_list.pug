@@ -4,14 +4,14 @@ block content
 	.content
 		.animal-list-heading
 			h1 Here are all the animal list
-			a(href="/animal/create", title="Add a new animal")
+			a.add-animal-btn(href="/animal/create", title="Add a new animal")
 				|
 				i.fa-regular.fa-square-plus
 
 		.animal-list-container
 			each animal in animals
 				.animal-card
-					img(src=animal.imgUrl, alt=animal.name)
+					img(src=null === animal.imgUrl ? "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg" : animal.imgUrl, alt=animal.name)
 					.animal-card-details
 						a(href=animal.url) #{ animal.name }
 						if animal.status=='least concern'

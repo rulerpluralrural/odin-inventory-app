@@ -14,7 +14,7 @@ block content
 				.delete-list-container
 					each animal in category_animals
 						.delete-list-card
-							img(src=animal.imgUrl, alt=animal.name)
+							img(src=null === animal.imgUrl ? "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg" : animal.imgUrl, alt=animal.name)
 							.delete-card-details
 								a(href=animal.url) #{ animal.name }
 								if animal.status=='least concern'

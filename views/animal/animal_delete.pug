@@ -9,7 +9,7 @@ block content
 
 		.category-details-container
 			.category-details-card
-				img(src=animal.imgUrl, alt=animal.name)
+				img(src=null === animal.imgUrl ? "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg" : animal.imgUrl, alt=animal.name)
 				.category-details-content
 					if animal.status=='least concern'
 						p.common #{ animal.status }

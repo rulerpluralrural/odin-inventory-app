@@ -17,7 +17,7 @@ block content
 		.category-details-container
 			each animal in animals
 				.category-details-card
-					img(src=animal.imgUrl, alt=animal.name)
+					img(src=null === animal.imgUrl ? "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg" : animal.imgUrl, alt=animal.name)
 					.category-details-content
 						a(href=animal.url) #[strong #{ animal.name } ]
 						if animal.status=='least concern'
@@ -32,5 +32,9 @@ block content
 							|
 							a.category-link(href="/category") #{ category.name }
 						p - !{ description }
+		.button-container
+			a.add-animal-btn(href="/animal/create", title="Add a new animal")
+				|
+				i.fa-regular.fa-square-plus
 		if animals.length <= 0
 			p.text-error There are no animals in this category please add one.

@@ -280,13 +280,17 @@ navbar .logo {
 	text-align: center;
 }
 
-.animal-list-heading i {
+.add-animal-btn {
+	align-self: center;
+}
+
+.add-animal-btn i {
 	margin-top: 1rem;
 	font-size: 2.3rem;
 	cursor: pointer;
 }
 
-.animal-list-heading i:hover {
+.add-animal-btn i:hover {
 	animation: var(--animate-ping);
 }
 
