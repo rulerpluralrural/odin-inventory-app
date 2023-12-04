@@ -203,10 +203,10 @@ exports.animal_update_post = [
 			return;
 		} else {
 			// Data form is valid.
-			//Save animal
-			await animal.save();
+			// Update the records
+			const updatedAnimal = await Animal.findByIdAndUpdate(req.params.id, animal)
 			// Redirect to new animal record.
-			res.redirect(animal.url);
+			res.redirect(updatedAnimal.url);
 		}
 	}),
 ];
