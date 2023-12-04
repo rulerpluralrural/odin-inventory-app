@@ -27,14 +27,8 @@ const AnimalSchema = new mongoose.Schema(
 			required: [true, "Please provide a category"],
 		},
 	},
-	{ timestamps: true }
+	{ timestamps: true },
 );
-
-// AnimalSchema.path("imageURL").validate((val) => {
-// 	urlRegex =
-// 		/(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?/;
-// 	return urlRegex.test(val);
-// }, "Invalid URL");
 
 AnimalSchema.virtual("url").get(function () {
 	return `/animal/${this._id}`;

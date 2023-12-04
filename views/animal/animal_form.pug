@@ -23,16 +23,15 @@ block content
 						placeholder="Information about the animal"
 					) #{ undefined === animal ? '' : animal.description }
 				.form-group
-					label(for="img_url") Image URL
+					label(for="img_url") Image URL:
 					input#img_url.form-control(
 						type="text",
-						placeholder="Type the image url here",
+						placeholder="Optional",
 						name="img_url",
-						required="true",
 						value=undefined === imgUrl ? "" : animal.imgUrl
 					)
 				.form-group
-					label(for="status") Status
+					label(for="status") Status:
 					select#status.form-control(
 						type="select",
 						name="status",
@@ -43,15 +42,26 @@ block content
 						option(value="endangered") Endangered
 						option(value="extinct") Extinct
 				.form-group
-					label(for="category") Category
+					label(for="category") Category:
 					select#category.form-control(
 						type="select",
 						name="category",
 						placeholder="Animal type"
 					)
-						each category in categories 
-							option(value=category.name) #{ category.name }
-		if errors
-			ul
-				each error in errors 
-					li!= error.msg
+						- categories.sort(function(a, b) {let textA = a.name.toUpperCase(); let textB = b.name.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
+						each category in categories
+							if animal
+								option(
+									value=category._id,
+									selected=category._id.toString() === animal.category._id.toString() ? "selected" : false
+								) #{ category.name }
+							else
+								option(value=category._id) #{ category.name }
+				.form-btn-container
+					button(type="submit") Submit
+
+		.errors-container
+			if errors
+				ul
+					each error in errors 
+						li.text-error!= error.msg

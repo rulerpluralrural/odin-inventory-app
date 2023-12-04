@@ -30,7 +30,7 @@ block content
 							p.extinct #{ animal.status }
 						p #[strong Category:]
 							|
-							a.category-link(href=animal.category.url) #{ animal.category.name }
-						p - #{ description }
+							a.category-link(href="/category") #{ category.name }
+						p - !{ description }
 		if animals.length <= 0
 			p.text-error There are no animals in this category please add one.

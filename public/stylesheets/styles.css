@@ -54,7 +54,9 @@ i {
 	font-size: 1.5rem;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
 	font-family: var(--font-header);
 }
 
@@ -191,7 +193,7 @@ navbar .logo {
 	border-radius: 5px;
 	padding: 0.8rem;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	flex-direction: column;
 	gap: 0.5rem;
 }
@@ -219,7 +221,7 @@ navbar .logo {
 
 .category-btn-container a {
 	font-weight: bold;
-	font-size: .923rem;
+	font-size: 0.923rem;
 	width: 140px;
 	text-decoration: none;
 	border-radius: 3px;
@@ -352,7 +354,10 @@ navbar .logo {
 	animation: var(--animate-ping);
 }
 
-.common, .vulnerable, .endangered, .extinct {
+.common,
+.vulnerable,
+.endangered,
+.extinct {
 	text-transform: capitalize;
 }
 
@@ -415,7 +420,7 @@ navbar .logo {
 	color: var(--green-400);
 }
 
-.category-details-container{
+.category-details-container {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
@@ -454,17 +459,17 @@ navbar .logo {
 
 .category-details-content p:nth-child(2) {
 	text-transform: capitalize;
-	margin-bottom: .5rem;
+	margin-bottom: 0.5rem;
 }
 
 .category-details-content p:nth-child(4) {
-	margin-top: .7rem;
+	margin-top: 0.7rem;
 }
 
 .text-error {
 	color: var(--red-600);
 	text-decoration: underline;
-	font-size: large;
+	font-size: 1.1rem;
 	font-weight: bold;
 }
 
@@ -482,7 +487,7 @@ navbar .logo {
 	display: flex;
 	align-items: flex-start;
 	justify-content: center;
-	height: 100%;
+	margin-bottom: 1rem;
 }
 
 form.category-form {
@@ -515,10 +520,12 @@ form.category-form {
 
 .form-btn-container button {
 	width: 100%;
-	border-radius: var(--border-radius-sm);
+	padding: 0.8rem;
+	border-radius: var(--border-radius-xs);
 	background-color: var(--blue-400);
 	color: var(--white-clr);
 	font-size: 1.1rem;
+	margin-top: 0.6rem;
 }
 
 .form-btn-container button:hover,
@@ -526,7 +533,18 @@ form.category-form {
 	animation: var(--animate-ping);
 }
 
-/* Delete Category Styling */
+.errors-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.errors-container li {
+	list-style-type: disc;
+	text-decoration: none;
+}
+
+/* Delete Category/Animal Styling */
 
 .delete-header {
 	margin-bottom: 1rem;
@@ -578,6 +596,10 @@ form.category-form {
 
 .delete-card-details p::first-letter {
 	text-transform: capitalize;
+}
+
+.animal-delete-container {
+	margin-top: 1rem;
 }
 
 .delete-btn {

@@ -12,11 +12,14 @@ block content
 					a(href=animal.url + "/update")
 						|
 						i.fa-regular.fa-pen-to-square(title="Edit Category")
-			p= animal.description
+			p !{ animal.description }
 
 		.category-details-container
 			.category-details-card
-				img(src=animal.imgUrl, alt=animal.name)
+				img(
+					src=null === animal.imgUrl ? "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg" : animal.imgUrl,
+					alt=animal.name
+				)
 				.category-details-content
 					if animal.status=='least concern'
 						p.common #{ animal.status }
@@ -29,4 +32,4 @@ block content
 					p #[strong Category:]
 						|
 						a.category-link(href=animal_category.url) #{ animal_category.name }
-					p - #{ animal_category.description }
+					p - !{ animal_category.description }

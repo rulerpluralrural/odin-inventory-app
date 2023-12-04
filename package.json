@@ -16,6 +16,7 @@
     "express-async-handler": "^1.2.0",
     "express-validator": "^7.0.1",
     "mongoose": "^8.0.1",
+    "mongoose-type-url": "^2.1.0",
     "nodemon": "^3.0.1",
     "pug": "^3.0.2"
   },
