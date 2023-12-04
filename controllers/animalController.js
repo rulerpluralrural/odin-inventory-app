@@ -51,9 +51,9 @@ exports.animal_create_post = [
 		.trim()
 		.isLength({ min: 1 })
 		.escape()
-		.withMessage("Category name must be specified")
+		.withMessage("Animal name must be specified")
 		.isAlphanumeric()
-		.withMessage("Category name has non-alpanumeric characters"),
+		.withMessage("Animal name has non-alpanumeric characters"),
 	body("description")
 		.trim()
 		.isLength({ min: 1 })
@@ -125,16 +125,88 @@ exports.animal_delete_get = asyncHandler(async (req, res, next) => {
 
 // Handle delete animal on POST
 exports.animal_delete_post = asyncHandler(async (req, res, next) => {
-	const animal = await Animal.findById(req.params.id)
-
 	await Animal.findByIdAndDelete(req.body.animal_id);
 	res.redirect("/animal");
 });
 
+// Display animal update form on GET
 exports.animal_update_get = asyncHandler(async (req, res, next) => {
-	res.send("GET Update Animal");
+	const [animal, categories] = await Promise.all([
+		Animal.findById(req.params.id).populate("category").exec(),
+		Category.find().exec(),
+	]);
+
+	if (animal === null) {
+		const error = new Error("Animal not found");
+		error.status = 404;
+		return next(error);
+	}
+
+	res.render("animal/animal_form", {
+		title: "Update animal",
+		categories: categories,
+		animal: animal,
+	});
 });
 
-exports.animal_update_post = asyncHandler(async (req, res, next) => {
-	res.send("POST Update Animal");
-});
+// Handle animal update on POST
+exports.animal_update_post = [
+	// Validate and sanitize fields
+	body("animal_name")
+		.trim()
+		.isLength({ min: 1 })
+		.escape()
+		.withMessage("Animal name must be specified")
+		.isAlphanumeric()
+		.withMessage("Animal name has non-alpanumeric characters"),
+	body("description")
+		.trim()
+		.isLength({ min: 1 })
+		.escape()
+		.withMessage("Description must be specified"),
+	body("img_url").trim(),
+	body("status.*").escape(),
+	body("category", "Category must not be empty")
+		.trim()
+		.isLength({ min: 1 })
+		.escape(),
+
+	// Process request after validation and sanitation
+	asyncHandler(async (req, res, next) => {
+		const [animals, categories] = await Promise.all([
+			Animal.find().exec(),
+			Category.find().exec(),
+		]);
+
+		// Extract the validation errors from a request.
+		const errors = validationResult(req);
+
+		// Update animal with escaped and trimmed data
+		const animal = new Animal({
+			name: req.body.animal_name,
+			description: req.body.description,
+			imgUrl: req.body.img_url || null,
+			status: req.body.status,
+			category: req.body.category,
+			_id: req.params.id,
+		});
+
+		if (!errors.isEmpty()) {
+			// There are errors. Render form again with sanitized values/errors messages.
+			res.render("animal/animal_form", {
+				title: "Add an Animal",
+				animals: animals,
+				categories: categories,
+				animal: animal,
+				errors: errors.array(),
+			});
+			return;
+		} else {
+			// Data form is valid.
+			//Save animal
+			await animal.save();
+			// Redirect to new animal record.
+			res.redirect(animal.url);
+		}
+	}),
+];

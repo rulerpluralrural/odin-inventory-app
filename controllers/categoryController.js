@@ -29,6 +29,7 @@ exports.category_details = asyncHandler(async (req, res, next) => {
 		description: category.description,
 		animals: getAllAnimals,
 		category: category,
+		_id: req.params.id, 
 	});
 });
 
